@@ -22,6 +22,12 @@ class PlayerController extends Controller
         return view('player',['player'=>$player],['club'=>$club]) ;
     }
 
+    public function addplayer()
+    {
+        $club = Club::all();
+        return view('addplayer',['club'=> $club]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -39,8 +45,34 @@ class PlayerController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    { 
+        $request->validate([
+            'name'=>'required' ,
+            'national_team'=>'required',
+            'position'=>'required',
+            'club'=>'club'
+        ]);
+        
+        $player = new Player([
+            'name' => $request->get('name'),
+            'national_team'=>$request->get('national_team'),
+            'position'=>$request->get('position'), 
+            'answer'=> true
+        ]);
+        $player->save();  
+        $pid = $player->id;
+        $clubs = $request->get('clubs');
+        if($clubs!=null)
+        {
+            $clubid = Club::where('name',$clubs)->get('id');  
+            $playerclub = new PlayerClub ([
+                'player_id' => $pid,
+                'club_id' => $clubid[0]->id,
+                'duration'=>$request->get('duration')
+            ]);  
+            $playerclub->save();
+        }   
+        return redirect('/player')->with('edit', 'Player has been Added !!');
     }
 
     /**

@@ -19,55 +19,19 @@
             @endif  
 
         <div class="columns is-marginless is-centered">
-            <div class="column is-10">
+            <div class="column is-12">
                 <nav class="card">
                     <header class="card-header ">
                         <p class="card-header-title">
                             Player 
                         </p> 
                     </header>
-                    
+                     
                     <div class="card-content ">  
                     <a href="home" class="button is-warning">Home  <i class="fas fa-home"></i></a>
-                    <a href=" " class="button is-success">Add Player <i class="fas fa-user-plus"></i></a>
+                    <a href="addplayer" class="button is-success">Add Player <i class="fas fa-user-plus"></i></a>
                     
-                    <!-- <div class="modal  is-active">
-                        <div class="modal-background"></div>
-                        <div class="modal-card">
-                            <header class="modal-card-head">
-                            <p class="modal-card-title">Add Player</p>
-                            <button class="delete" aria-label="close"></button>
-                            </header>
-                            <section class="modal-card-body">
-                            <div class="form-group">
-                          <label for="recipient-name" class="col-form-label">Name:</label> 
-                            <div class="field">
-                            <div class="control">
-                                <input required name="name" class="input is-primary is-rounded" type="text"  >  
-                            </div>
-
-                            <div class="form-group">
-                          <label for="recipient-name" class="col-form-label">National Team:</label> 
-                            <div class="field">
-                            <div class="control">
-                                <input required name="national_team" class="input is-primary is-rounded" type="text"  >  
-                            </div>
-
-                            <div class="form-group">
-                          <label for="recipient-name" class="col-form-label">Position:</label> 
-                            <div class="field">
-                            <div class="control">
-                                <input required name="position" class="input is-primary is-rounded" type="text"  >  
-                            </div>
-                            </section>
-                            <footer class="modal-card-foot">
-                            <button class="button is-success">Save changes</button>
-                            <button class="button">Cancel</button>
-                            </footer>
-                        </div>
-                        </div> -->
-
-                        <table class="table">
+                         <table class="table">
                           <thead>
                             <tr>   
                               <th> No</th>
@@ -102,18 +66,18 @@
                                 </tr> 
                                 <tr >
                                     <td>   
-                                        <b> Clubs of <i> {{ $players->name }} </i> </b> <br> 
-                                         
-                                                @foreach ($club as $logo)
-                                                    @if($logo->player_id == $players->id ) 
+                                        <b> Clubs of <i> {{ $players->name }} </i> </b> <br>  
+                                            @foreach ($club as $logo)
+                                                @if($logo->player_id == $players->id ) 
                                                     <td> 
-                                                        <img src="{{url($logo->Club[0]->photo)}}" height=80 width=80/>   
-                                                        <br> <b> Club : </b> {{ $logo->Club[0]->name }} 
-                                                        <br> <b> Duration : </b>{{ $logo->duration }}
-                                                    @endif 
-                                                    </td>
-                                                @endforeach  
-                                        
+                                                       <img src="{{url($logo->Club[0]->photo)}}" height=80 width=80/>  
+                                                       <!-- <i class="fas fa-forward"></i>  -->
+                                                       
+                                                       <br> <b> Club : </b> {{ $logo->Club[0]->name }} 
+                                                       <br> <b> Duration : </b>{{ $logo->duration }}
+                                                    </td>  
+                                                @endif 
+                                            @endforeach   
                                     </td> 
                                 </tr>
 

@@ -23,14 +23,14 @@
                           <b><label for="recipient-name" class="col-form-label">Name:</label> </b>
                             <div class="field">
                             <div class="control">
-                                <input required name="name" class="input is-primary is-rounded" type="text" value={{ $player->name }}>  
+                                <textarea required name="name" class="input is-primary is-rounded"  >  {{ $player->name }} </textarea>
                             </div>
                             <br>
                             <div class="form-group">
                           <b><label for="recipient-name" class="col-form-label">National Team:</label> </b>
                             <div class="field">
                             <div class="control">
-                                <input required name="national_team" class="input is-primary is-rounded" type="text" value={{ $player->national_team }}>  
+                                <textarea required name="national_team" class="input is-primary is-rounded" >{{ $player->national_team }}</textarea> 
                             </div>
                             <br>
                             <div class="form-group">
@@ -62,18 +62,18 @@
                                 </div>
                             </div>  -->
                             <br>
-                            <b><label for="recipient-name" class="col-form-label">Clubs:</label></b>
-                            <br><br>
-                             
-                            @foreach ($club as $logo)
-                                @if($logo->player_id == $player->id ) 
-                                        <img src="{{url($logo->Club[0]->photo)}}" height=80 width=80/>   
-                                            <br><b>Club : <i>{{ $logo->Club[0]->name }} </i>
-                                            <br>Duration :<i> {{ $logo->duration }} </i>  </b>
-                                        <a class="button is-danger" >Update</a>
-                                @endif
-                            <br>
-                            @endforeach  
+                            <b><label for="recipient-name" class="col-form-label">Clubs:</label></b>                            
+                            <table class="table"> 
+                                @foreach ($club as $logo)<td>  
+                                    @if($logo->player_id == $player->id ) 
+                                            <img src="{{url($logo->Club[0]->photo)}}" height=80 width=80/>   
+                                                <br><b>Club : <i>{{ $logo->Club[0]->name }} </i>
+                                                <br>Duration :<i> {{ $logo->duration }} </i>  </b>
+                                            <a class="button is-info" >Update</a>  </td>
+                                    @endif
+                                <br>
+                                @endforeach
+                            </table>
                         <br>
                         <button type="submit" class="button is-success">Update</button> 
                         <a href="{{route('player') }}" class="button is-danger">Cancel</a>

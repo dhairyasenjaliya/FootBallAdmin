@@ -8,6 +8,10 @@ class Club extends Model
 {
     protected $table = 'club';
 
+    protected $fillable = [
+        'id', 'name','photo' 
+    ];
+
     public function PlayerClub(){
         return $this->HasMany(PlayerClub::class,'id','club_id');
     } 

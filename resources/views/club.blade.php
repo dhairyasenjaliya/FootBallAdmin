@@ -16,7 +16,7 @@
                 {{ session()->get('edit') }} 
             </div> 
          @endif
-         
+        
         <div class="columns is-marginless is-centered">
             <div class="column is-5">
                 <nav class="card">

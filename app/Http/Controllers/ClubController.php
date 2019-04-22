@@ -29,6 +29,11 @@ class ClubController extends Controller
         //
     }
 
+    public function addclub()
+    {
+        return view('addclub');
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -37,7 +42,27 @@ class ClubController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name'=>'required'  ,
+            'filenames'=>'required'
+        ]);
+        
+        $club = new Club([
+            'name' => $request->get('name') 
+        ]);
+
+        $imageName = $request->file('filenames');
+     
+        if($imageName!=null)
+        {              
+            $extension = $imageName->getClientOriginalExtension(); 
+            $imageName->move(public_path('images/logo/'), $request->name.'.'.$extension);    
+            $name = 'images/logo/'.$request->name.'.'.$extension ; 
+            $club->photo = $name ;
+            $club->save();
+        }         
+        $club->save();
+        return redirect('/club')->with('edit', 'Club has been Added !!');
     }
 
     /**
@@ -109,8 +134,9 @@ class ClubController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
+    { 
         $club = Club::find($id); 
+        File::delete(public_path($club->photo));
         $club->delete();
         return redirect('/club')->with('fail', 'Club Deleted Success!!'); 
     }
