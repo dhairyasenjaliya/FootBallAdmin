@@ -64,8 +64,8 @@ class PlayerController extends Controller
     {
         $player = Player::find($id);
         $club = PlayerClub::with('Club')->orderBy('duration')->get();
-        return view('/editplayer', compact('player','club'));      
-    }
+        return view('/editplayer', compact('player','club')); 
+    } 
 
     /**
      * Update the specified resource in storage.

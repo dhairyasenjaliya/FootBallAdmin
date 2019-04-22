@@ -20,26 +20,26 @@
                         @method('PATCH')
                         @csrf
                           <div class="form-group">
-                          <label for="recipient-name" class="col-form-label">Name:</label> 
+                          <b><label for="recipient-name" class="col-form-label">Name:</label> </b>
                             <div class="field">
                             <div class="control">
                                 <input required name="name" class="input is-primary is-rounded" type="text" value={{ $player->name }}>  
                             </div>
-
+                            <br>
                             <div class="form-group">
-                          <label for="recipient-name" class="col-form-label">National Team:</label> 
+                          <b><label for="recipient-name" class="col-form-label">National Team:</label> </b>
                             <div class="field">
                             <div class="control">
                                 <input required name="national_team" class="input is-primary is-rounded" type="text" value={{ $player->national_team }}>  
                             </div>
-
+                            <br>
                             <div class="form-group">
-                          <label for="recipient-name" class="col-form-label">Position:</label> 
+                          <b><label for="recipient-name" class="col-form-label">Position:</label> </b>
                             <div class="field">
                             <div class="control">
                                 <input required name="position" class="input is-primary is-rounded" type="text" value={{ $player->position }}>  
                             </div>
-                            <!-- 
+<!--                             
                             <div class="dropdown is-active">
                                 <div class="dropdown-trigger">
                                     <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
@@ -60,20 +60,21 @@
                                     
                                     </div>
                                 </div>
-                            </div> -->
-
-                            
-                                         
-                                         @foreach ($club as $logo)
-                                             @if($logo->player_id == $player->id )  
-                                             <br>
-                                                 <img src="{{url($logo->Club[0]->photo)}}" height=80 width=80/>   
-                                                 <br> Club : {{ $logo->Club[0]->name }} 
-                                                 <br>Duration : {{ $logo->duration }}  
-                                             @endif
-                                         @endforeach  
-
-                    <br>
+                            </div>  -->
+                            <br>
+                            <b><label for="recipient-name" class="col-form-label">Clubs:</label></b>
+                            <br><br>
+                             
+                            @foreach ($club as $logo)
+                                @if($logo->player_id == $player->id ) 
+                                        <img src="{{url($logo->Club[0]->photo)}}" height=80 width=80/>   
+                                            <br><b>Club : <i>{{ $logo->Club[0]->name }} </i>
+                                           <br> Duration :<i> {{ $logo->duration }} </i>  </b>
+                                        <a class="button is-danger" >Update</a>
+                                @endif
+                            <br>
+                            @endforeach  
+                        <br>
                         <button type="submit" class="button is-success">Update</button> 
                         <a href="{{route('player') }}" class="button is-danger">Cancel</a>
                     </form>
