@@ -40,6 +40,6 @@ Route::get('/editplayer', 'PlayerController@edit')->name('editplayer');
 Route::get('/club', 'ClubController@index')->name('club');
 
 Route::resource('clubcrud', 'ClubController');
- 
 
 Route::get('/editclub', 'ClubController@edit')->name('editclub');
+ 

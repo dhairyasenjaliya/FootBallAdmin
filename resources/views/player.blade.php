@@ -105,11 +105,13 @@
                                         <b> Clubs of <i> {{ $players->name }} </i> </b> <br> 
                                          
                                                 @foreach ($club as $logo)
-                                                    @if($logo->player_id == $players->id )  
+                                                    @if($logo->player_id == $players->id ) 
+                                                    <td> 
                                                         <img src="{{url($logo->Club[0]->photo)}}" height=80 width=80/>   
-                                                        <br> Club : {{ $logo->Club[0]->name }} 
-                                                        <br>Duration : {{ $logo->duration }}  
-                                                    @endif
+                                                        <br> <b> Club : </b> {{ $logo->Club[0]->name }} 
+                                                        <br> <b> Duration : </b>{{ $logo->duration }}
+                                                    @endif 
+                                                    </td>
                                                 @endforeach  
                                         
                                     </td> 

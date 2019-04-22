@@ -69,7 +69,7 @@
                                 @if($logo->player_id == $player->id ) 
                                         <img src="{{url($logo->Club[0]->photo)}}" height=80 width=80/>   
                                             <br><b>Club : <i>{{ $logo->Club[0]->name }} </i>
-                                           <br> Duration :<i> {{ $logo->duration }} </i>  </b>
+                                            <br>Duration :<i> {{ $logo->duration }} </i>  </b>
                                         <a class="button is-danger" >Update</a>
                                 @endif
                             <br>
