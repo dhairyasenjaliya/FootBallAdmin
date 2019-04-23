@@ -46,6 +46,7 @@ class PlayerController extends Controller
      */
     public function store(Request $request)
     {    
+        
         $request->validate([
             'name'=>'required' ,
             'national_team'=>'required',
@@ -57,9 +58,9 @@ class PlayerController extends Controller
             'national_team'=>$request->get('national_team'),
             'position'=>$request->get('position') , 
             'answer'=>$request->get('answer') ,
-            'hint'=>$request->get('hint'),
-            'difficulty'=>$request->get('difficulty')            
-        ]);
+            'hint' => $request->get('hint'),
+            'difficulty'=>$request->get('difficulty')
+        ]); 
         $player->save();
         $pid = $player->id;
         $clubs = $request->get('clubs');

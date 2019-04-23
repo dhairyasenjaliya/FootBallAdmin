@@ -10,7 +10,7 @@ class Player extends Model
     protected $table = 'player';
 
     protected $fillable = [
-        'name', 'national_team', 'position', 'answer','club','difficulty'
+        'name', 'national_team', 'position', 'answer','hint','difficulty'
     ];
     
     public function Club(){
