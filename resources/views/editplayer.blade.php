@@ -39,29 +39,34 @@
                             <div class="control">
                                 <input required name="position" class="input is-primary is-rounded" type="text" value={{ $player->position }}>  
                             </div>
-<!--                             
-                            <div class="dropdown is-active">
-                                <div class="dropdown-trigger">
-                                    <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
-                                    <span>Dropdown button</span>
-                                    <span class="icon is-small">
-                                        <i class="fas fa-angle-down" aria-hidden="true"></i>
-                                    </span>
-                                    </button>
-                                </div>
-                                <div class="dropdown-menu" id="dropdown-menu" role="menu">
-                                    <div class="dropdown-content">
-                                    <a href="#" class="dropdown-item">
-                                        True
-                                    </a>
-                                    <a class="dropdown-item">
-                                        False
-                                    </a>
-                                    
-                                    </div>
-                                </div>
-                            </div>  -->
                             <br>
+ 
+                            <div class="form-group">
+                          <b><label for="recipient-name" class="col-form-label">Hint:</label> </b>
+                            <div class="field">
+                            <div class="control">
+                                <textarea name="hint" class="input is-primary is-rounded" type="text" >{{ $player->hint }}</textarea>  
+                            </div>
+                            <br>
+
+                            <b><label for="recipient-name" class="col-form-label">Answer:</label></b>
+                            <select  class="form-control" name="answer"  >
+                                <!-- <option value="{{ $player->answer }} "selected disabled> {{ $player->answer }}</option> -->
+                                <option value="True"> True</option>
+                                <option value="False">False</option>
+                            </select>
+                            <br><br>
+                            
+                            <b><label for="recipient-name" class="col-form-label">Difficulty Level:</label></b> 
+
+                            <select id="p" name="difficulty" > 
+                                <!-- <option value="{{ $player->difficulty }}" selected disabled> {{ $player->difficulty }} </option> -->
+                                <option value="Easy"> Easy</option>
+                                <option value="Medium">Medium</option>
+                                <option value="Hard" >Hard</option>
+                            </select>
+                            <br><br>
+
                             <b><label for="recipient-name" class="col-form-label">Clubs:</label></b>                            
                             <table class="table"> 
                                 @foreach ($club as $logo)<td>  

@@ -45,23 +45,26 @@ class PlayerController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    { 
+    {    
+        dd($request);
         $request->validate([
             'name'=>'required' ,
             'national_team'=>'required',
-            'position'=>'required',
-            'club'=>'club'
+            'position'=>'required', 
         ]);
         
         $player = new Player([
             'name' => $request->get('name'),
             'national_team'=>$request->get('national_team'),
-            'position'=>$request->get('position'), 
-            'answer'=> true
+            'position'=>$request->get('position') , 
+            'answer'=>$request->get('answer') ,
+            'hint'=>$request->get('hint'),
+            'difficulty'=>$request->get('difficulty')            
         ]);
-        $player->save();  
+        $player->save();
         $pid = $player->id;
         $clubs = $request->get('clubs');
+
         if($clubs!=null)
         {
             $clubid = Club::where('name',$clubs)->get('id');  
@@ -71,7 +74,8 @@ class PlayerController extends Controller
                 'duration'=>$request->get('duration')
             ]);  
             $playerclub->save();
-        }   
+        }  
+        
         return redirect('/player')->with('edit', 'Player has been Added !!');
     }
 
@@ -96,7 +100,7 @@ class PlayerController extends Controller
     {
         $player = Player::find($id);
         $club = PlayerClub::with('Club')->orderBy('duration')->get();
-        return view('/editplayer', compact('player','club'));      
+        return view('/editplayer', compact('player','club'));
     } 
 
     /**
@@ -115,12 +119,15 @@ class PlayerController extends Controller
             'position'=>'required'  
         ]);
 
-          $player = Player::find($id);
+        $player = Player::find($id);
           
-          $player->name = $request->get('name');
-          $player->national_team = $request->get('national_team');
-          $player->position = $request->get('position');
-          $player->save();
+        $player->name = $request->get('name');
+        $player->national_team = $request->get('national_team');
+        $player->position = $request->get('position');
+        $player->answer = $request->get('answer');
+        $player->difficulty = $request->get('difficulty');
+        $player->hint = $request->get('hint');
+        $player->save();
     
           return redirect('/player')->with('edit', 'Player has been updated !!');
     }

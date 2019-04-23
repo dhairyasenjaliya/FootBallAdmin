@@ -14,7 +14,7 @@ class PlayerClub extends Model
     
 
     public function player(){
-        return $this->HasMany(Player::class,'id');
+        return $this->HasMany(Player::class,'id','player_id');
     }
 
     public function club(){

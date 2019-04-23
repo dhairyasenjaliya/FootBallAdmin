@@ -40,7 +40,7 @@
                               <th> Position </th>
                               <th> Answer  </th> 
                               <th> Difficulty </th> 
-                              <!-- <th> Clubs </th>  -->
+                              <th> Hints </th> 
                               <th> Edit  </th> 
                               <th> Delete </th> 
                             </tr>
@@ -54,6 +54,7 @@
                                     <td>{{ $players->position }}</td> 
                                     <td>{{ $players->answer }}</td>
                                     <td>{{ $players->difficulty }}</td>
+                                    <td>{{ $players->hint }}</td>  
                                     
                                     <td>  <a href="{{ route('crud.edit',$players->id)}}" class="button is-info">Edit</a>    </td> 
                                     <td>
@@ -77,8 +78,10 @@
                                                        <br> <b> Duration : </b>{{ $logo->duration }}
                                                     </td>  
                                                 @endif 
-                                            @endforeach   
+                                            @endforeach 
+                                            
                                     </td> 
+                                   
                                 </tr>
 
                             @endforeach

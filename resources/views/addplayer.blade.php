@@ -39,6 +39,35 @@
                             <div class="control">
                                 <input required name="position" class="input is-primary is-rounded" type="text"  >  
                             </div>
+
+                            <br>
+                            <div class="form-group">
+                            <b><label for="recipient-name" class="col-form-label">Hint's:</label> </b> 
+                            <div class="field">
+                            <div class="control"> 
+                                <textarea name="hint" class="input is-primary is-rounded">  </textarea>
+                            </div>
+                            </div></div>
+                            <br>
+
+                            <br>
+                            <b><label for="recipient-name" class="col-form-label">Answer :</label></b>
+                            <br>  
+                            
+                            <select id="p" name="answer" > 
+                                <option value="True">True</option> 
+                                <option value="False">False</option>  
+                            </select>
+                            
+                            <br>
+                            <b><label for="recipient-name" class="col-form-label">Difficulty Level:</label></b>
+                            <br>  
+                            
+                            <select id="p" name="difficulty" > 
+                                <option value="Easy">Easy</option> 
+                                <option value="Medium">Medium</option> 
+                                <option value="Hard">Hard</option>  
+                            </select>
                             
                             <br>
                             <b><label for="recipient-name" class="col-form-label">Clubs:</label></b>
@@ -55,7 +84,7 @@
                             </select>  
  
                         <br><br>
-                        <button type="submit" class="button is-success">Update</button> 
+                        <button type="submit" class="button is-success">Add</button> 
                         <a href="{{route('player') }}" class="button is-danger">Cancel</a>
                     </form>
   

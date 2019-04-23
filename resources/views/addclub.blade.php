@@ -48,7 +48,7 @@
                             </div>
                        
                     <br>
-                        <button type="submit" class="button is-success">Update</button> 
+                        <button type="submit" class="button is-success">Add</button> 
                         <a href="{{route('club') }}" class="button is-danger">Cancel</a>
                     </form>
 

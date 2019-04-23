@@ -26,13 +26,8 @@ class CreatePlayerClubTable extends Migration
 
             $table->foreign('club_id')
             ->references('id')->on('club')
-            ->onDelete('cascade');
-           
-        });
-
-        
-
-
+            ->onDelete('cascade'); 
+        }); 
     }
 
     /**

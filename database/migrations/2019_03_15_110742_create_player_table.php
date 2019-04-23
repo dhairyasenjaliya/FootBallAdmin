@@ -20,7 +20,7 @@ class CreatePlayerTable extends Migration
             $table->string('national_team');
             $table->string('position');
             $table->string('answer'); 
-            $table->integer('club')->nullable();
+            $table->string('hint')->nullable();
             $table->enum('difficulty',['Easy','Medium','Hard'])->default('Easy');
             $table->timestamps(); 
         });
