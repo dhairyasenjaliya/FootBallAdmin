@@ -46,7 +46,6 @@ class PlayerController extends Controller
      */
     public function store(Request $request)
     {    
-        dd($request);
         $request->validate([
             'name'=>'required' ,
             'national_team'=>'required',
