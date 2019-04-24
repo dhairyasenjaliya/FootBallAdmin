@@ -10,8 +10,7 @@ class PlayerClub extends Model
 
     protected $fillable = [
         'player_id', 'club_id', 'duration' 
-    ];
-    
+    ]; 
 
     public function player(){
         return $this->HasMany(Player::class,'id','player_id');

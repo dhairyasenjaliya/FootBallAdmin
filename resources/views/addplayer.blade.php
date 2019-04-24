@@ -2,6 +2,12 @@
 
 @section('content')
 
+<script type="text/javascript">
+    $(document).ready(function() {
+        alert("Settings page was loaded");
+    });
+</script>
+
     <div class="container"> 
 
         <div class="columns is-marginless is-centered">
@@ -23,21 +29,21 @@
                           <b><label for="recipient-name" class="col-form-label">Player Name:</label> </b>
                             <div class="field">
                             <div class="control">
-                                <input required name="name" class="input is-primary is-rounded" type="text"  >  
+                                <input required name="name" class="input is-primary " type="text"  >  
                             </div>
                             <br>
                             <div class="form-group">
                           <b><label for="recipient-name" class="col-form-label">National Team:</label> </b>
                             <div class="field">
                             <div class="control">
-                                <input required name="national_team" class="input is-primary is-rounded" type="text"  >  
+                                <input required name="national_team" class="input is-primary " type="text"  >  
                             </div>
                             <br>
                             <div class="form-group">
                           <b><label for="recipient-name" class="col-form-label">Position:</label> </b>
                             <div class="field">
                             <div class="control">
-                                <input required name="position" class="input is-primary is-rounded" type="text"  >  
+                                <input required name="position" class="input is-primary " type="text"  >  
                             </div>
 
                             <br>
@@ -45,16 +51,15 @@
                             <b><label for="recipient-name" class="col-form-label">Hint's:</label> </b> 
                             <div class="field">
                             <div class="control"> 
-                                <textarea name="hint" class="input is-primary is-rounded">  </textarea>
+                                <textarea name="hint" class="textarea is-primary" >  </textarea>
                             </div>
                             </div></div>
                             <br>
-
-                            <br>
+ 
                             <b><label for="recipient-name" class="col-form-label">Answer :</label></b>
                             <br>  
                             
-                            <select id="p" name="answer" > 
+                            <select id="p" name="answer"  > 
                                 <option value="True">True</option> 
                                 <option value="False">False</option>  
                             </select>
@@ -72,15 +77,14 @@
                             <br>
                             <b><label for="recipient-name" class="col-form-label">Clubs:</label></b>
                             <br>  
-                            
+                             
                             <select id="p" name="clubs" >
                             @php ($data = [])
                             @foreach($club as $clubs) 
                                 <option value="{{ $clubs->name }}">{{ $clubs->name }} </option> 
                                     @php ($data[] = $clubs->name) 
-                            @endforeach   
-                            
-                            <input required name="duration" class="input is-primary is-rounded" type="text"  placeholder="Enter Duration">
+                            @endforeach                               
+                            <input required name="duration" class="input is-primary " type="text"  placeholder="Enter Duration">
                             </select>  
  
                         <br><br>

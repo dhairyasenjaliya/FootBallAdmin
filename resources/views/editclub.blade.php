@@ -23,7 +23,7 @@
                           <label for="recipient-name" class="col-form-label">Name:</label> 
                             <div class="field">
                             <div class="control">
-                                <textarea required name="name" class="input is-primary is-rounded"> {{ $club->name }}  </textarea>
+                                <textarea required name="name" class="input is-primary "> {{ $club->name }}  </textarea>
                             </div>
 
                             <div class="form-group">

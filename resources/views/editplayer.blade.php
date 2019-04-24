@@ -23,21 +23,21 @@
                           <b><label for="recipient-name" class="col-form-label">Name:</label> </b>
                             <div class="field">
                             <div class="control">
-                                <textarea required name="name" class="input is-primary is-rounded"  >  {{ $player->name }} </textarea>
+                                <textarea required name="name" class="input is-primary"  >  {{ $player->name }} </textarea>
                             </div>
                             <br>
                             <div class="form-group">
                           <b><label for="recipient-name" class="col-form-label">National Team:</label> </b>
                             <div class="field">
                             <div class="control">
-                                <textarea required name="national_team" class="input is-primary is-rounded" >{{ $player->national_team }}</textarea> 
+                                <textarea required name="national_team" class="input is-primary " >{{ $player->national_team }}</textarea> 
                             </div>
                             <br>
                             <div class="form-group">
                           <b><label for="recipient-name" class="col-form-label">Position:</label> </b>
                             <div class="field">
                             <div class="control">
-                                <input required name="position" class="input is-primary is-rounded" type="text" value={{ $player->position }}>  
+                                <input required name="position" class="input is-primary " type="text" value={{ $player->position }}>  
                             </div>
                             <br>
  
@@ -45,13 +45,13 @@
                           <b><label for="recipient-name" class="col-form-label">Hint:</label> </b>
                             <div class="field">
                             <div class="control">
-                                <textarea name="hint" class="input is-primary is-rounded" type="text" >{{ $player->hint }}</textarea>  
+                                <textarea name="hint" class="textarea is-primary " type="text" >{{ $player->hint }}</textarea>  
                             </div>
                             <br>
 
                             <b><label for="recipient-name" class="col-form-label">Answer:</label></b>
                             <select  class="form-control" name="answer"  >
-                                <!-- <option value="{{ $player->answer }} "selected disabled> {{ $player->answer }}</option> -->
+                                <option value="{{ $player->answer }} "selected  > {{ $player->answer }}</option>
                                 <option value="True"> True</option>
                                 <option value="False">False</option>
                             </select>
@@ -60,14 +60,14 @@
                             <b><label for="recipient-name" class="col-form-label">Difficulty Level:</label></b> 
 
                             <select id="p" name="difficulty" > 
-                                <!-- <option value="{{ $player->difficulty }}" selected disabled> {{ $player->difficulty }} </option> -->
+                                <option value="{{ $player->difficulty }}" selected  > {{ $player->difficulty }} </option>
                                 <option value="Easy"> Easy</option>
                                 <option value="Medium">Medium</option>
                                 <option value="Hard" >Hard</option>
                             </select>
                             <br><br>
 
-                            <b><label for="recipient-name" class="col-form-label">Clubs:</label></b>                            
+                            <b><label for="recipient-name" class="col-form-label">Clubs:</label></b> 
                             <table class="table"> 
                                 @foreach ($club as $logo)<td>  
                                     @if($logo->player_id == $player->id ) 

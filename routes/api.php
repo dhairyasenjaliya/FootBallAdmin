@@ -19,4 +19,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 
-Route::get('playerinfo', 'ApiPlayerController@playerinfo'); 
+Route::post('playerinfo', 'ApiPlayerController@playerinfo'); 

@@ -23,7 +23,7 @@
                           <label for="recipient-name" class="col-form-label">Name:</label> 
                             <div class="field">
                             <div class="control">
-                                <input required name="name" class="input is-primary is-rounded" type="text" placeholder="Enter Club Name">  
+                                <input required name="name" class="input is-primary " type="text" placeholder="Enter Club Name">  
                             </div>
 
                             <div class="form-group">
