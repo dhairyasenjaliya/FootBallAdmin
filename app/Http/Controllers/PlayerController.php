@@ -45,8 +45,7 @@ class PlayerController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {    
-        
+    {   
         $request->validate([
             'name'=>'required' ,
             'national_team'=>'required',
@@ -63,19 +62,26 @@ class PlayerController extends Controller
         ]); 
         $player->save();
         $pid = $player->id;
+
         $clubs = $request->get('clubs');
 
         if($clubs!=null)
-        {
-            $clubid = Club::where('name',$clubs)->get('id');  
-            $playerclub = new PlayerClub ([
-                'player_id' => $pid,
-                'club_id' => $clubid[0]->id,
-                'duration'=>$request->get('duration')
-            ]);  
-            $playerclub->save();
+        { 
+            $duration = $request->get('duration'); 
+            $i = -1;
+              foreach($clubs as $club)
+              {          
+                  $i++; 
+                    $clubid = Club::where('name',$club)->get('id');  
+                    $playerclub = new PlayerClub ([
+                        'player_id' => $pid,
+                        'club_id' => $clubid[0]->id,
+                        'duration'=> $duration[$i]
+                    ]);  
+                $playerclub->save();
+                
+             }
         }  
-        
         return redirect('/player')->with('edit', 'Player has been Added !!');
     }
 

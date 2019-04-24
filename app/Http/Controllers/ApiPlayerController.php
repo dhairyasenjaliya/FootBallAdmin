@@ -28,11 +28,11 @@ class ApiPlayerController extends Controller
          
         $player = Player::with('PlayerClub.club')->where('difficulty', $request->level)->get(); 
          
-
         $player->map(function ($player) {
             $player['guess_name'] = str_shuffle($player->name);
             return $player;
         });
+        
         return response()->json($player);
     }
 }

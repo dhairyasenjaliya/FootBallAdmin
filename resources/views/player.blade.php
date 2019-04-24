@@ -1,3 +1,11 @@
+<style>
+.table__wrapper {
+  overflow-x: auto;
+}
+ 
+
+</style>
+
 @extends('layouts.app')
 
 @section('content')
@@ -30,8 +38,8 @@
                     <div class="card-content ">  
                     <a href="home" class="button is-warning">Home  <i class="fas fa-home"></i></a>
                     <a href="addplayer" class="button is-success">Add Player <i class="fas fa-user-plus"></i></a>
-                    
-                         <table class="table">
+                        <div class="table__wrapper">
+                         <table class="table is-striped is-fullwidth">
                           <thead>
                             <tr>   
                               <th> No</th>
@@ -69,13 +77,13 @@
                                     <td>   
                                         <b> Clubs of <i> {{ $players->name }} </i> </b> <br>  
                                             @foreach ($club as $logo)
-                                                @if($logo->player_id == $players->id ) 
-                                                    <td> 
-                                                       <img src="{{url($logo->Club[0]->photo)}}" height=80 width=80/>  
-                                                       <!-- <i class="fas fa-forward"></i>  -->
-                                                       
-                                                       <br> <b> Club : </b> {{ $logo->Club[0]->name }} 
-                                                       <br> <b> Duration : </b>{{ $logo->duration }}
+                                                @if($logo->player_id == $players->id )  
+                                                    <td style="height:100px;overflow:auto;"> 
+                                                       <img src="{{url($logo->Club[0]->photo)}}" height=80 width=80/>
+                                                       <td class="scrollable">
+                                                        <b> Club : </b> {{ $logo->Club[0]->name }} 
+                                                        <b> Duration : </b>{{ $logo->duration }}
+                                                       </td>
                                                     </td>  
                                                 @endif 
                                             @endforeach 
@@ -87,6 +95,7 @@
                             @endforeach
                           </tbody>
                         </table>
+                        </div>
                     </div>
                 </nav>
             </div>
