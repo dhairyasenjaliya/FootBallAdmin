@@ -39,7 +39,7 @@
                     <a href="home" class="button is-warning">Home  <i class="fas fa-home"></i></a>
                     <a href="addplayer" class="button is-success">Add Player <i class="fas fa-user-plus"></i></a>
                         <div class="table__wrapper">
-                         <table class="table is-striped is-fullwidth">
+                         <table class="table is-fullwidth">
                           <thead>
                             <tr>   
                               <th> No</th>
@@ -62,36 +62,31 @@
                                     <td>{{ $players->position }}</td> 
                                     <td>{{ $players->answer }}</td>
                                     <td>{{ $players->difficulty }}</td>
-                                    <td>{{ $players->hint }}</td>  
-                                    
+                                    <td>{{ $players->hint }}</td>                                      
                                     <td>  <a href="{{ route('crud.edit',$players->id)}}" class="button is-info">Edit</a>    </td> 
                                     <td>
-                                     <form action="{{ route('crud.destroy', $players->id)}}" method="post">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button class="button is-danger" type="submit">Delete</button>
-                                    </form>  
+                                        <form action="{{ route('crud.destroy', $players->id)}}" method="post">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button class="button is-danger" type="submit">Delete</button>
+                                        </form>  
                                     </td>   
                                 </tr> 
-                                <tr >
-                                    <td>   
-                                        <b> Clubs of <i> {{ $players->name }} </i> </b> <br>  
-                                            @foreach ($club as $logo)
-                                                @if($logo->player_id == $players->id )  
-                                                    <td style="height:100px;overflow:auto;"> 
-                                                       <img src="{{url($logo->Club[0]->photo)}}" height=80 width=80/>
-                                                       <td class="scrollable">
-                                                        <b> Club : </b> {{ $logo->Club[0]->name }} 
-                                                        <b> Duration : </b>{{ $logo->duration }}
-                                                       </td>
-                                                    </td>  
-                                                @endif 
-                                            @endforeach 
-                                            
-                                    </td> 
-                                   
+                                <tr>
+                                    <tr>   
+                                        @foreach ($club as $key => $logo)
+                                        @if($key%11 == 0)   <tr>   </tr> @endif 
+                                            @if($logo->player_id == $players->id )
+                                                <td style="height:100px;overflow:auto;">
+                                                    <img src="{{url($logo->Club[0]->photo)}}" height=80 width=80/>
+                                                    <br>
+                                                    <b> Club : </b> {{ $logo->Club[0]->name }} 
+                                                    <b> Duration : </b>{{ $logo->duration }} 
+                                                </td>  
+                                            @endif 
+                                        @endforeach 
+                                    </tr>  
                                 </tr>
-
                             @endforeach
                           </tbody>
                         </table>

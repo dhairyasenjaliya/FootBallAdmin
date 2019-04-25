@@ -152,18 +152,35 @@ $(document).ready(function(){
                             </div>
                         </form>  
                     </div>  
-                            <table class="table"> 
-                                @foreach ($club as $logo)<td>  
+                            <table class="table  is-bordered"> 
+                                <!-- @foreach ($club as $logo)<td>  
                                     @if($logo->player_id == $player->id ) 
                                             <img src="{{url($logo->Club[0]->photo)}}" height=80 width=80/>   
                                                 <br><b>Club : <i>{{ $logo->Club[0]->name }} </i>
                                                 <br>Duration :<i> {{ $logo->duration }} </i>  </b>  
-                                                <!-- <a href="{{ route('playerclub.edit',$logo->id)}}" class="button is-info">Edit</a> -->
+                                                <a href="{{ route('playerclub.edit',$logo->id)}}" class="button is-info">Edit</a>
                                                 <a href="{{ route('playerclub.show',$logo->id)}}" class="button is-danger">Delete</a> 
                                             </td>
                                     @endif
                                 <br>
-                                @endforeach
+                                @endforeach --> 
+                                
+                                <tr>   
+                                        @foreach ($club as $key => $logo)
+                                        @if($key%7 == 0)   <tr>   </tr> @endif 
+                                            @if($logo->player_id == $player->id )
+                                                <td style="height:100px;overflow:auto;">
+                                                    <img src="{{url($logo->Club[0]->photo)}}" height=60 width=60/>
+                                                    <br>
+                                                    <b> Club : </b> {{ $logo->Club[0]->name }} 
+                                                    <b> Duration : </b>{{ $logo->duration }} 
+                                                     <!-- <a href="{{ route('playerclub.edit',$logo->id)}}" class="button is-info">Edit</a> -->
+                                                    <a href="{{ route('playerclub.show',$logo->id)}}" class="button is-danger">Delete</a> 
+                                                </td>  
+                                            @endif 
+                                        @endforeach 
+                                </tr>  
+
                             </table> 
                         <br>
                         <button type="submit" class="button is-success">Update</button> 
