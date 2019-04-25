@@ -167,7 +167,7 @@ $(document).ready(function(){
                                     
                                 <tr>   
                                         @foreach ($club as $key => $logo)
-                                        @if($key%14 == 0)   <tr>   </tr> @endif 
+                                        @if($key%7 == 0)   <tr>   </tr> @endif 
                                             @if($logo->player_id == $player->id )
                                                 <td style="height:100px;overflow:auto;">
                                                     <img src="{{url($logo->Club[0]->photo)}}" height=60 width=60/>
