@@ -37,6 +37,7 @@ class PlayerController extends Controller
     {
         //
     }
+ 
 
     /**
      * Store a newly created resource in storage.
@@ -91,9 +92,10 @@ class PlayerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+
+    public function show($id) 
     {
-        //
+        //  
     }
 
     /**
@@ -106,7 +108,8 @@ class PlayerController extends Controller
     {
         $player = Player::find($id);
         $club = PlayerClub::with('Club')->orderBy('duration')->get();
-        return view('/editplayer', compact('player','club'));
+        $allclub = Club::all() ;
+        return view('/editplayer', compact('player','club','allclub'));
     } 
 
     /**
@@ -117,8 +120,7 @@ class PlayerController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-         
+    { 
         $request->validate([
             'name'=>'required', 
             'national_team'=>'required' ,
@@ -134,8 +136,31 @@ class PlayerController extends Controller
         $player->difficulty = $request->get('difficulty');
         $player->hint = $request->get('hint');
         $player->save();
+
+        $pid = $player->id;
+
+        $clubs = $request->get('clubs');
+
+        if($clubs!=null)
+        { 
+            $duration = $request->get('duration'); 
+            $i = -1;
+              foreach($clubs as $club)
+              {          
+                  $i++; 
+                    $clubid = Club::where('name',$club)->get('id');  
+                    $playerclub = new PlayerClub ([
+                        'player_id' => $pid,
+                        'club_id' => $clubid[0]->id,
+                        'duration'=> $duration[$i]
+                    ]);  
+                $playerclub->save();
+                
+             }
+        }  
+
     
-          return redirect('/player')->with('edit', 'Player has been updated !!');
+        return redirect('/player')->with('edit', 'Player has been updated !!');
     }
 
     /**

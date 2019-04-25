@@ -10,7 +10,7 @@ $(document).ready(function(){
 
   $('#add').click(function(){  
        i++;  
-    //    $('#dynamic_field').append('<tr id="row'+i+'" class="dynamic-added"><td><input type="text" name="name[]" placeholder="Enter your Name" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');  
+     //$('#dynamic_field').append('<tr id="row'+i+'" class="dynamic-added"><td><input type="text" name="name[]" placeholder="Enter your Name" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');  
        $('#dynamic_field').append('<tr id="row'+i+'" class="dynamic-added"><td><select id="p" name="clubs[]" >@php ($data = [])@foreach($club as $clubs)<option value="{{ $clubs->name }}">{{ $clubs->name }} </option>@php ($data[] = $clubs->name)@endforeach<input required name="duration[]" class="input is-primary " type="text"  placeholder="Enter Duration"></select> <td><button type="button" name="remove" id="'+i+'" class="button is-danger btn_remove">X</button></td></tr>');   
   });  
 
@@ -59,6 +59,7 @@ $(document).ready(function(){
 });  
 
 </script>
+
     <div class="container"> 
         <div class="columns is-marginless is-centered">
             <div class="column is-8">
@@ -128,7 +129,7 @@ $(document).ready(function(){
                             <b><label for="recipient-name" class="col-form-label">Clubs:</label></b>
                             <br>  
                               
-                            <div class="form-group">
+                    <div class="form-group">
                         <form name="add_name" id="add_name">  
                             <div class="alert alert-danger print-error-msg" style="display:none">
                                 <ul></ul>

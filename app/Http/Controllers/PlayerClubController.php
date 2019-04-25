@@ -44,9 +44,12 @@ class PlayerClubController extends Controller
      * @param  \App\PlayerClub  $playerClub
      * @return \Illuminate\Http\Response
      */
-    public function show(PlayerClub $playerClub)
+
+    public function show($id)  //Used For deleting purpose
     {
-        //
+        $player_club = PlayerClub::find($id); 
+        $player_club->delete(); 
+        return back()->with('del', 'Club has been Deleted !!'); 
     }
 
     /**
@@ -55,9 +58,9 @@ class PlayerClubController extends Controller
      * @param  \App\PlayerClub  $playerClub
      * @return \Illuminate\Http\Response
      */
-    public function edit(PlayerClub $playerClub)
+    public function edit(Request $request)
     {
-        //
+         
     }
 
     /**
@@ -67,9 +70,9 @@ class PlayerClubController extends Controller
      * @param  \App\PlayerClub  $playerClub
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, PlayerClub $playerClub)
+    public function update(Request $request)
     {
-        //
+       dd($request);
     }
 
     /**
@@ -78,7 +81,7 @@ class PlayerClubController extends Controller
      * @param  \App\PlayerClub  $playerClub
      * @return \Illuminate\Http\Response
      */
-    public function destroy(PlayerClub $playerClub)
+    public function destroy($id)
     {
         //
     }

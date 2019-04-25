@@ -19,6 +19,8 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
 
     </head>
+
+    
     <body>
         <div id="app">
             <nav class="navbar has-shadow">
@@ -69,3 +71,5 @@
         <script src="{{ asset('js/bulma_js.js') }}"></script>
     </body>
 </html>
+
+
