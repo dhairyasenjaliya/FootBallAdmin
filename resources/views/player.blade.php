@@ -26,7 +26,7 @@
             @endif  
 
         <div class="columns is-marginless is-centered">
-            <div class="column is-10">
+            <div class="column is-11">
                 <nav class="card">
                     <header class="card-header ">
                         <p class="card-header-title">
