@@ -1,9 +1,8 @@
 <style>
 .table__wrapper {
-  overflow-x: auto;
+  overflow-x: auto; 
 }
- 
-
+  
 </style>
 
 @extends('layouts.app')
@@ -27,7 +26,7 @@
             @endif  
 
         <div class="columns is-marginless is-centered">
-            <div class="column is-12">
+            <div class="column is-10">
                 <nav class="card">
                     <header class="card-header ">
                         <p class="card-header-title">
@@ -72,20 +71,18 @@
                                         </form>  
                                     </td>   
                                 </tr> 
-                                <tr>
-                                    <tr>   
+                                <tr > 
                                         @foreach ($club as $key => $logo)
-                                        @if($key%11 == 0)   <tr>   </tr> @endif 
+                                        <!-- @if($key%5 == 0)    @endif  -->
                                             @if($logo->player_id == $players->id )
-                                                <td style="height:100px;overflow:auto;">
+                                                <td >
                                                     <img src="{{url($logo->Club[0]->photo)}}" height=80 width=80/>
                                                     <br>
                                                     <b> Club : </b> {{ $logo->Club[0]->name }} 
                                                     <b> Duration : </b>{{ $logo->duration }} 
                                                 </td>  
                                             @endif 
-                                        @endforeach 
-                                    </tr>  
+                                        @endforeach  
                                 </tr>
                             @endforeach
                           </tbody>
